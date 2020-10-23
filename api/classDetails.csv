@@ -1,0 +1,5 @@
+id,className,temp,light,fan,fire
+1,STD-1,28,ON,OFF,No
+2,STD-2,34,OFF,ON,Yes
+3,STD-3,38,ON,ON,No
+4,STD-4,33,OFF,ON,No
