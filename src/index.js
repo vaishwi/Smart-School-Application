@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import * as serviceWorker from './serviceWorker';
 // for intall bootstrap npm -i bootstrap
 import 'bootstrap/dist/css/bootstrap.css'; 
@@ -9,12 +9,28 @@ import 'semantic-ui-css/semantic.min.css';
 //import Counter from './components/counter'
 //import CRoomName from './components/cRoomName'
 import CRoomNames from './components/cRoomNames'
-import StudentDetail from './components/studentDetail'
+import ClassDetails from './components/classDetails'
+//npm install react-router@3
+import {Router,Route} from "react-router"
+import {browserHistory} from "react-router"
+//import { useHistory } from "react-router-dom";
+
+class IOTApp extends React.Component {
+  render(){
+    return(
+      <Router history={browserHistory} >
+        <Route path="/" component={CRoomNames} />
+        <Route path="/classDetails/:cid" component={ClassDetails} />
+      </Router>
+    );
+  }
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Smart School Application</h1>
-    <CRoomNames/>
+    <h1 align='center'> Smart School Application</h1>
+    <IOTApp/>
   </React.StrictMode>,
   document.getElementById('root')
 );
