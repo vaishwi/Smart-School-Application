@@ -5,8 +5,8 @@ class CRoomNames extends Component {
 
     state = {  
         cnames:[],
-        isLoaded:false,
-        backState:false
+        isLoaded:false
+        
     }
 
     componentDidMount () {
@@ -25,10 +25,7 @@ class CRoomNames extends Component {
         });
     }
 
-    handleStudent = clname =>{
-        console.log("student detail handler",clname)
-        this.state.backState=true
-    };
+
 
     render() { 
         var { isLoaded , cnames} = this.state;
@@ -37,18 +34,13 @@ class CRoomNames extends Component {
             return <div> Loading...</div>
         }
         else{
-            if (!this.state.backState){
-                return ( 
-                    <div>
-                        {this.state.cnames.map(cname => 
-                            <CRoomName key={cname.id} onDetail={this.handleStudent} value={cname} selected={true}/>)}                    
-                    </div> );
-                
-            }
-            else{
-                return(<div>Student Details</div>);
-            }
             
+            return ( 
+                <div>
+                    {this.state.cnames.map(cname => 
+                        <CRoomName key={cname.id} value={cname} selected={true}/>)}                    
+                </div> );
+        
         }
     }
 }
